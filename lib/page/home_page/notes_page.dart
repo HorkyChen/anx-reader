@@ -73,19 +73,20 @@ class _NotesPageState extends ConsumerState<NotesPage> {
     return notesStats.when(
       data: (data) {
         return SafeArea(
+          bottom: false,
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               highlightDigit(
                 context,
-                L10n.of(context).notes_notes_across(data['numberOfNotes']!),
+                L10n.of(context).notesNotesAcross(data['numberOfNotes']!),
                 textStyle,
                 digitStyle,
               ),
               highlightDigit(
                 context,
-                L10n.of(context).notes_books(data['numberOfBooks']!),
+                L10n.of(context).notesBooks(data['numberOfBooks']!),
                 textStyle,
                 digitStyle,
               ),
@@ -180,7 +181,7 @@ class _NotesPageState extends ConsumerState<NotesPage> {
                   children: [
                     highlightDigit(
                       context,
-                      L10n.of(context).notes_notes(numberOfNotes),
+                      L10n.of(context).notesNotes(numberOfNotes),
                       textStyle,
                       digitStyle,
                     ),

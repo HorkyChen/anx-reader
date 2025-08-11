@@ -338,7 +338,7 @@ class Prefs extends ChangeNotifier {
     BuildContext context = navigatorKey.currentContext!;
     if (fontJson == null) {
       return FontModel(
-          label: L10n.of(context).follow_book, name: 'book', path: '');
+          label: L10n.of(context).followBook, name: 'book', path: '');
     }
     return FontModel.fromJson(fontJson);
   }
@@ -519,6 +519,14 @@ class Prefs extends ChangeNotifier {
     return prefs.getBool('volumeKeyTurnPage') ?? false;
   }
 
+  set swapPageTurnArea(bool status) {
+    prefs.setBool('swapPageTurnArea', status);
+  }
+
+  bool get swapPageTurnArea {
+    return prefs.getBool('swapPageTurnArea') ?? false;
+  }
+
   set bookCoverWidth(double width) {
     prefs.setDouble('bookCoverWidth', width);
     notifyListeners();
@@ -677,7 +685,7 @@ class Prefs extends ChangeNotifier {
     String? fontJson = prefs.getString('excerptShareFont');
     if (fontJson == null) {
       return FontModel(
-          label: L10n.of(navigatorKey.currentContext!).system_font,
+          label: L10n.of(navigatorKey.currentContext!).systemFont,
           name: 'customFont0',
           path: 'SourceHanSerifSC-Regular.otf');
     }
